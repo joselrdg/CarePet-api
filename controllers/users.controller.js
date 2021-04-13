@@ -1,5 +1,5 @@
 const createError = require('http-errors')
-const User = require('../models/User.model')
+const User = require('../models/users/User.model')
 
 module.exports.create = (req, res, next) => {
   User.findOne({ email: req.body.email })
