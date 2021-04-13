@@ -1,32 +1,55 @@
 const mongoose = require("mongoose");
 const Veterinary = require("./Veterinary.model");
+const Groomer = require("./Veterinary.Groomer");
+const Residence = require("./Veterinary.Residence");
+const Dogwalker = require("./Veterinary.Dogwalker");
 
 const petSchema = mongoose.Schema(
   {
-    veterinary: [
-      {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "veterinary",
+    pet: {
+      species: {
+        type: String,
+        required: "Species is required",
       },
-    ],
-    groomer: [
-      {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "groomer",
+      name: {
+        type: String,
       },
-    ],
-    residence: [
-      {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "residence",
+      chip: {
+        type: String
       },
-    ],
-    dogwalker: [
-      {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "dogwalker",
+      breed: {
+        type: String,
+        required: "Breed is required",
       },
-    ],
+      hair: {
+        type: String,
+        required: "Hair is required",
+      },
+      capa: {
+        type: String,
+        required: "Capa is required",
+      },
+      sterilized: {
+        type: String,
+        required: "Sterilized is required",
+      },
+      datebirth: {
+        type: Date
+      },
+      placelive: {
+        type: String,
+      },
+      family: {
+        type: String,
+      }
+    },
+    carepet: {
+      history: [{
+        anamnesis: {
+          type: String,
+        }
+      }],
+    }
   },
   {
     timestamps: true,
@@ -42,18 +65,23 @@ const petSchema = mongoose.Schema(
   }
 );
 
-petSchema.virtual("pets", {
-  ref: Review.modelName,
+petSchema.virtual("veterinary", {
+  ref: Veterinary.modelName,
   localField: "_id",
   foreignField: "pet",
 });
-petSchema.virtual("pets", {
-  ref: Review.modelName,
+petSchema.virtual("groomer", {
+  ref: Groomer.modelName,
   localField: "_id",
   foreignField: "pet",
 });
-petSchema.virtual("pets", {
-  ref: Review.modelName,
+petSchema.virtual("residence", {
+  ref: Residence.modelName,
+  localField: "_id",
+  foreignField: "pet",
+});
+petSchema.virtual("dogwalker", {
+  ref: Dogwalker.modelName,
   localField: "_id",
   foreignField: "pet",
 });
