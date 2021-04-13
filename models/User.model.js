@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const Pet = require("./Pet.model");
+const Veterinary = require("./Veterinary.model");
+const Groomer = require("./Veterinary.Groomer");
+const Residence = require("./Veterinary.Residence");
+const Dogwalker = require("./Veterinary.Dogwalker");
 
 const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const PASSWORD_PATTERN = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
@@ -58,10 +62,12 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    vets: [{
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "Profile"
-  }],
+    vets: [
+      {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Profile",
+      },
+    ],
   },
   {
     timestamps: true,
@@ -96,6 +102,26 @@ userSchema.virtual("pets", {
   ref: Pet.modelName,
   localField: "_id",
   foreignField: "user",
+});
+userSchema.virtual("veterinary", {
+  ref: Veterinary.modelName,
+  localField: "_id",
+  foreignField: "pet",
+});
+userSchema.virtual("groomer", {
+  ref: Groomer.modelName,
+  localField: "_id",
+  foreignField: "pet",
+});
+userSchema.virtual("residence", {
+  ref: Residence.modelName,
+  localField: "_id",
+  foreignField: "pet",
+});
+userSchema.virtual("dogwalker", {
+  ref: Dogwalker.modelName,
+  localField: "_id",
+  foreignField: "pet",
 });
 
 const User = mongoose.model("User", userSchema);

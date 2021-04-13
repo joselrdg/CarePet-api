@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const User = require("./User.model");
+const Anamnesis = require("./Anamnesis.model");
 const Veterinary = require("./Veterinary.model");
 const Groomer = require("./Veterinary.Groomer");
 const Residence = require("./Veterinary.Residence");
@@ -6,7 +8,12 @@ const Dogwalker = require("./Veterinary.Dogwalker");
 
 const petSchema = mongoose.Schema(
   {
-    pet: {
+    user: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: User.modelName,
+      required: true,
+    },
+    review: {
       species: {
         type: String,
         required: "Species is required",
@@ -15,7 +22,7 @@ const petSchema = mongoose.Schema(
         type: String,
       },
       chip: {
-        type: String
+        type: String,
       },
       breed: {
         type: String,
@@ -24,32 +31,60 @@ const petSchema = mongoose.Schema(
       hair: {
         type: String,
         required: "Hair is required",
+        enum: ["short", "long"],
       },
-      capa: {
+      color: {
         type: String,
-        required: "Capa is required",
+        required: "Color is required",
+      },
+      specialpeculiarities: {
+        type: String,
       },
       sterilized: {
         type: String,
         required: "Sterilized is required",
+        enum: ["sterilized", "intact"],
       },
       datebirth: {
-        type: Date
+        type: Date,
       },
-      placelive: {
+      habitat: {
         type: String,
+        enum: ["indoor", "exterior", "reala", "finca", "workshop"],
       },
       family: {
         type: String,
-      }
+        enum: ["family", "orphan",],
+      },
+      origin: {
+        type: String,
+        enum: ["urban", "rural"],
+      },
+      familyhistory: [{
+        type: String
+      }],
+      allergies: [{
+        type: String
+      }],
+      previousdiseases: [{
+        type: String
+      }],
+      surgeries: [{
+        type: String
+      }]
     },
     carepet: {
-      history: [{
-        anamnesis: {
-          type: String,
-        }
-      }],
-    }
+      history: [
+        {
+          anamnesis: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: Anamnesis.modelName,
+            required: true,
+          },
+          exploration:
+        },
+      ],
+    },
   },
   {
     timestamps: true,
