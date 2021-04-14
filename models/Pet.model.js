@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("./User.model");
-const Anamnesis = require("./Anamnesis.model");
 const Veterinary = require("./Veterinary.model");
-const Groomer = require("./Veterinary.Groomer");
+const Groomer = require("./Groomer.model");
 const Residence = require("./Veterinary.Residence");
 const Dogwalker = require("./Veterinary.Dogwalker");
 
@@ -10,7 +9,7 @@ const petSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: User.modelName,
+      ref: "User",
       required: true,
     },
     review: {

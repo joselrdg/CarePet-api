@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const Pet = require("./Pet.model");
 const Veterinary = require("./Veterinary.model");
-const Groomer = require("./Veterinary.Groomer");
+const Groomer = require("./Groomer.model");
 const Residence = require("./Veterinary.Residence");
 const Dogwalker = require("./Veterinary.Dogwalker");
 
