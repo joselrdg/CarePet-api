@@ -54,34 +54,148 @@ const petSchema = mongoose.Schema(
       },
       family: {
         type: String,
-        enum: ["family", "orphan",],
+        enum: ["family", "orphan"],
       },
       origin: {
         type: String,
         enum: ["urban", "rural"],
       },
-      familyhistory: [{
-        type: String
-      }],
-      allergies: [{
-        type: String
-      }],
-      previousdiseases: [{
-        type: String
-      }],
-      surgeries: [{
-        type: String
-      }]
+      familyhistory: [
+        {
+          type: String,
+        },
+      ],
+      allergies: [
+        {
+          type: String,
+        },
+      ],
+      previousdiseases: [
+        {
+          type: String,
+        },
+      ],
+      surgeries: [
+        {
+          type: String,
+        },
+      ],
     },
     carepet: {
       history: [
         {
-          anamnesis: {
-            type: mongoose.SchemaTypes.ObjectId,
-            ref: Anamnesis.modelName,
-            required: true,
+          habitat: {
+            origin: {
+              type: String,
+              enum: ["urban", "rural"],
+            },
+            place: {
+              type: String,
+              enum: [
+                "indoor",
+                "exterior",
+                "garden",
+                "meadow",
+                "reala",
+                "kennel",
+              ],
+            },
+            outings: {
+              out: {
+                type: String,
+                enum: ["leash", "offleash"],
+              },
+              place: {
+                type: String,
+                enum: ["street", "parks", "woods", "beach"],
+              },
+            },
+            otheranimals: [
+              {
+                num: {
+                  type: Number,
+                },
+                species: {
+                  type: String,
+                  enum: [
+                    "canine",
+                    "feline",
+                    "rodents",
+                    "reptiles",
+                    "amphibians",
+                    "birds",
+                  ],
+                },
+              },
+            ],
+            diet: {
+              type: {
+                type: String,
+                enum: ["can", "homemade", "croquette"],
+              },
+              brand: {
+                type: String,
+              },
+              product: {
+                type: String,
+              },
+            },
           },
-          exploration:
+          exploration: {
+            mucous: {
+              type: String,
+              enum: ["pink", "red", "pale", "cyanotic", "ichthyric"],
+            },
+            trc: {
+              Number,
+            },
+            hydration: {
+              Number,
+            },
+            fc: {
+              Number,
+            },
+            fr: {
+              Number,
+            },
+            pulse: {
+              String,
+            },
+            temperature: {
+              Number,
+            },
+            weight: {
+              Number,
+            },
+            consciousness: {
+              type: String,
+              enum: ["alert", "depression", "delusional", "stupor", "coma"],
+            },
+            nutritional: {
+              type: String,
+              enum: [
+                "cachexic",
+                "underweight",
+                "normal",
+                "overweight",
+                "obesity",
+              ],
+            },
+          },
+          media: {
+            type: String,
+            validate: {
+              validator: (value) => {
+                try {
+                  const url = new URL(value);
+                  return url.protocol === "http:" || url.protocol === "https:";
+                } catch (err) {
+                  return false;
+                }
+              },
+              message: () => "Invalid image URL",
+            },
+          },
         },
       ],
     },
