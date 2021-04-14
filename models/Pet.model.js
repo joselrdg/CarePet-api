@@ -1,0 +1,239 @@
+const mongoose = require("mongoose");
+const User = require("./User.model");
+const Veterinary = require("./Veterinary.model");
+const Groomer = require("./Groomer.model");
+const Residence = require("./Veterinary.Residence");
+const Dogwalker = require("./Veterinary.Dogwalker");
+
+const petSchema = mongoose.Schema(
+  {
+    user: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    review: {
+      species: {
+        type: String,
+        required: "Species is required",
+      },
+      name: {
+        type: String,
+      },
+      chip: {
+        type: String,
+      },
+      breed: {
+        type: String,
+        required: "Breed is required",
+      },
+      hair: {
+        type: String,
+        required: "Hair is required",
+        enum: ["short", "long"],
+      },
+      color: {
+        type: String,
+        required: "Color is required",
+      },
+      specialpeculiarities: {
+        type: String,
+      },
+      sterilized: {
+        type: String,
+        required: "Sterilized is required",
+        enum: ["sterilized", "intact"],
+      },
+      datebirth: {
+        type: Date,
+      },
+      habitat: {
+        type: String,
+        enum: ["indoor", "exterior", "reala", "finca", "workshop"],
+      },
+      family: {
+        type: String,
+        enum: ["family", "orphan"],
+      },
+      origin: {
+        type: String,
+        enum: ["urban", "rural"],
+      },
+      familyhistory: [
+        {
+          type: String,
+        },
+      ],
+      allergies: [
+        {
+          type: String,
+        },
+      ],
+      previousdiseases: [
+        {
+          type: String,
+        },
+      ],
+      surgeries: [
+        {
+          type: String,
+        },
+      ],
+    },
+    carepet: {
+      history: [
+        {
+          habitat: {
+            origin: {
+              type: String,
+              enum: ["urban", "rural"],
+            },
+            place: {
+              type: String,
+              enum: [
+                "indoor",
+                "exterior",
+                "garden",
+                "meadow",
+                "reala",
+                "kennel",
+              ],
+            },
+            outings: {
+              out: {
+                type: String,
+                enum: ["leash", "offleash"],
+              },
+              place: {
+                type: String,
+                enum: ["street", "parks", "woods", "beach"],
+              },
+            },
+            otheranimals: [
+              {
+                num: {
+                  type: Number,
+                },
+                species: {
+                  type: String,
+                  enum: [
+                    "canine",
+                    "feline",
+                    "rodents",
+                    "reptiles",
+                    "amphibians",
+                    "birds",
+                  ],
+                },
+              },
+            ],
+            diet: {
+              type: {
+                type: String,
+                enum: ["can", "homemade", "croquette"],
+              },
+              brand: {
+                type: String,
+              },
+              product: {
+                type: String,
+              },
+            },
+          },
+          exploration: {
+            mucous: {
+              type: String,
+              enum: ["pink", "red", "pale", "cyanotic", "ichthyric"],
+            },
+            trc: {
+              Number,
+            },
+            hydration: {
+              Number,
+            },
+            fc: {
+              Number,
+            },
+            fr: {
+              Number,
+            },
+            pulse: {
+              String,
+            },
+            temperature: {
+              Number,
+            },
+            weight: {
+              Number,
+            },
+            consciousness: {
+              type: String,
+              enum: ["alert", "depression", "delusional", "stupor", "coma"],
+            },
+            nutritional: {
+              type: String,
+              enum: [
+                "cachexic",
+                "underweight",
+                "normal",
+                "overweight",
+                "obesity",
+              ],
+            },
+          },
+          media: {
+            type: String,
+            validate: {
+              validator: (value) => {
+                try {
+                  const url = new URL(value);
+                  return url.protocol === "http:" || url.protocol === "https:";
+                } catch (err) {
+                  return false;
+                }
+              },
+              message: () => "Invalid image URL",
+            },
+          },
+        },
+      ],
+    },
+  },
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+      transform: (doc, ret) => {
+        ret.id = doc._id;
+        delete ret._id;
+        delete ret.__v;
+        return ret;
+      },
+    },
+  }
+);
+
+petSchema.virtual("veterinary", {
+  ref: Veterinary.modelName,
+  localField: "_id",
+  foreignField: "pet",
+});
+petSchema.virtual("groomer", {
+  ref: Groomer.modelName,
+  localField: "_id",
+  foreignField: "pet",
+});
+petSchema.virtual("residence", {
+  ref: Residence.modelName,
+  localField: "_id",
+  foreignField: "pet",
+});
+petSchema.virtual("dogwalker", {
+  ref: Dogwalker.modelName,
+  localField: "_id",
+  foreignField: "pet",
+});
+
+const Pet = mongoose.model("Pet", petSchema);
+
+module.exports = Pet;
