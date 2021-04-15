@@ -5,6 +5,7 @@ const petsusersController = require('../controllers/pets.controller')
 const authMiddleware = require('../middlewares/auth.middleware')
 
 // Users routes
+// router.get('/', authMiddleware.isAuthenticated, usersController.user)
 router.post('/users/auth', usersController.aunthenticate)
 router.get('/users/me', authMiddleware.isAuthenticated, usersController.get)
 

@@ -2,6 +2,11 @@ const createError = require("http-errors");
 const User = require("../models/User.model");
 const jwt = require("jsonwebtoken");
 
+module.exports.user = (req, res, next) => {
+  
+      res.json('eeey');
+   
+};
 module.exports.get = (req, res, next) => {
   User.findById(req.currentUser).then((user) => {
     if (!user) {
@@ -47,6 +52,7 @@ module.exports.aunthenticate = (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
+  console.log(req.body)
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (user) {
@@ -58,6 +64,8 @@ module.exports.create = (req, res, next) => {
         );
       } else {
         // User creation
+  console.log('User creation')
+
         return User.create(req.body).then((user) => res.status(201).json(user));
       }
     })
