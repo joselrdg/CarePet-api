@@ -28,6 +28,10 @@ const userSchema = mongoose.Schema(
         "Your password must contain at least 1 number, 1 uppercase, 1 lowercase and 8 characters",
       ],
     },
+    username: {
+      type: String,
+      required: "User name is required",
+    },
     name: {
       type: String,
       required: "Name is required",
