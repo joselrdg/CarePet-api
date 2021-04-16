@@ -43,7 +43,7 @@ mongoose.connection.once("open", () => {
           user: users[Math.floor(index / 2)]._id,
           review: {
             species: "dog",
-            name: faker.name.findName(),
+            name: faker.name.firstName(),
             chip: "0123456789",
             breed: faker.animal.dog(),
             hair: "short",
