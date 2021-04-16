@@ -2,6 +2,18 @@ const createError = require("http-errors");
 const Pet = require("../models/Pet.model");
 
 
+module.exports.list = (req, res, next) => {
+    Pet.find()
+      .then(pets => {
+        if (!pets) {
+          next(createError(404, 'Pet not found'))
+        } else {
+          res.json(pets)
+        }
+      })
+      .catch(next)
+  }
+  
 module.exports.get = (req, res, next) => {
     Pet.findById(req.params.id)
       .then(pet => {
