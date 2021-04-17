@@ -10,8 +10,9 @@ router.post('/users/create', usersController.create)
 router.post('/users/auth', usersController.aunthenticate)
 router.get('/users/me', authMiddleware.isAuthenticated, usersController.get)
 
-router.get('/pets/list', authMiddleware.isAuthenticated, petsController.list)
-router.get('/pets/user', authMiddleware.isAuthenticated, petsController.get)
+router.get('/pets/list', authMiddleware.isAuthenticated, petsController.getAll)
+router.get('/pets/user/:id', authMiddleware.isAuthenticated, petsController.list)
 router.post('/pets/create/:user', authMiddleware.isAuthenticated, petsController.create)
+router.get('/pets/:id', authMiddleware.isAuthenticated, petsController.get)
 
 module.exports = router;
