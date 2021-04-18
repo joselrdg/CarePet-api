@@ -50,7 +50,6 @@ module.exports.aunthenticate = (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-  console.log(req.body);
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (user) {
@@ -62,8 +61,6 @@ module.exports.create = (req, res, next) => {
         );
       } else {
         // User creation
-        console.log("User creation");
-
         return User.create(req.body).then((user) => res.status(201).json(user));
       }
     })
