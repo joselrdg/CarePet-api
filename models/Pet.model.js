@@ -17,6 +17,9 @@ const petSchema = mongoose.Schema(
         type: String,
         required: "Species is required",
       },
+      picture:{
+        type: String,
+      },
       name: {
         type: String,
       },
