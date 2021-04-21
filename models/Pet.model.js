@@ -30,7 +30,6 @@ const petSchema = mongoose.Schema(
       hair: {
         type: String,
         required: "Hair is required",
-        enum: ["short", "long"],
       },
       color: {
         type: String,
@@ -42,11 +41,14 @@ const petSchema = mongoose.Schema(
       sterilized: {
         type: String,
         required: "Sterilized is required",
-        enum: ["sterilized", "intact"],
+        enum: ["Esterilizado", "Castrado"],
       },
       datebirth: {
         type: Date,
       },
+      washweek: Number,
+      wash: String,
+      weight: [{date: String, kg:Number}],
       habitat: {
         type: String,
         enum: ["indoor", "exterior", "reala", "finca", "workshop"],
@@ -161,9 +163,6 @@ const petSchema = mongoose.Schema(
               String,
             },
             temperature: {
-              Number,
-            },
-            weight: {
               Number,
             },
             consciousness: {
