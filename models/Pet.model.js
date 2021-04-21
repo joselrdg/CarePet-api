@@ -26,6 +26,7 @@ const petSchema = mongoose.Schema(
       chip: {
         type: String,
       },
+      sex: String,
       breed: {
         type: String,
         required: "Breed is required",
@@ -54,7 +55,7 @@ const petSchema = mongoose.Schema(
       weight: [{date: String, kg:Number}],
       habitat: {
         type: String,
-        enum: ["indoor", "exterior", "reala", "finca", "workshop"],
+        enum: ["indoor", "exterior", "reala", "finca", "taller", 'otro'],
       },
       family: {
         type: String,
@@ -62,7 +63,7 @@ const petSchema = mongoose.Schema(
       },
       origin: {
         type: String,
-        enum: ["urban", "rural"],
+        enum: ["Urbano", "Rural"],
       },
       familyhistory: [
         {
