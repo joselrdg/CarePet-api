@@ -15,7 +15,6 @@ const petSchema = mongoose.Schema(
     review: {
       species: {
         type: String,
-        required: "Species is required",
       },
       picture:{
         type: String,
@@ -29,41 +28,33 @@ const petSchema = mongoose.Schema(
       sex: String,
       breed: {
         type: String,
-        required: "Breed is required",
       },
       hair: {
         type: String,
-        required: "Hair is required",
       },
       color: {
         type: String,
-        required: "Color is required",
       },
       specialpeculiarities: {
         type: String,
       },
       sterilized: {
         type: String,
-        required: "Sterilized is required",
-        enum: ["Esterilizado", "Castrado"],
       },
       datebirth: {
         type: Date,
       },
       washweek: Number,
       wash: String,
-      weight: [{date: String, kg:Number}],
+      weight: {date: Date, kg:Number},
       habitat: {
         type: String,
-        enum: ["indoor", "exterior", "reala", "finca", "taller", 'otro'],
       },
       family: {
         type: String,
-        enum: ["family", "orphan"],
       },
       origin: {
         type: String,
-        enum: ["Urbano", "Rural"],
       },
       familyhistory: [
         {

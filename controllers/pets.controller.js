@@ -29,14 +29,12 @@ module.exports.get = (req, res, next) => {
 
 module.exports.list = (req, res, next) => {
   const { id } = req.params;
-  console.log(req.currentUser);
-  console.log("hola");
   Pet.find({ user: id })
     .then((pets) => {
       if (!pets) {
         next(createError(404, "Pet not found"));
       } else {
-        console.log('mascotas encontrada');
+        console.log('Mascotas encontradas');
         res.json(pets);
       }
     })
@@ -44,7 +42,9 @@ module.exports.list = (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-  Pet.create(req.body)
-    .then((pet) => res.status(201).json(pet))
-    .catch(next);
+  if (req.body.user === req.currentUser)
+  console.log('entroooo')
+  {Pet.create(req.body)
+    .then((pet) => {console.log('Mascota creada'); res.status(201).json(pet)})
+    .catch(next);}
 };
