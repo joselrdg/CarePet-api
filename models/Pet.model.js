@@ -15,7 +15,6 @@ const petSchema = mongoose.Schema(
     review: {
       species: {
         type: String,
-        required: "Species is required",
       },
       picture:{
         type: String,
@@ -26,41 +25,36 @@ const petSchema = mongoose.Schema(
       chip: {
         type: String,
       },
+      sex: String,
       breed: {
         type: String,
-        required: "Breed is required",
       },
       hair: {
         type: String,
-        required: "Hair is required",
-        enum: ["short", "long"],
       },
       color: {
         type: String,
-        required: "Color is required",
       },
       specialpeculiarities: {
         type: String,
       },
       sterilized: {
         type: String,
-        required: "Sterilized is required",
-        enum: ["sterilized", "intact"],
       },
       datebirth: {
         type: Date,
       },
+      washweek: Number,
+      wash: String,
+      weight: {date: Date, kg:Number},
       habitat: {
         type: String,
-        enum: ["indoor", "exterior", "reala", "finca", "workshop"],
       },
       family: {
         type: String,
-        enum: ["family", "orphan"],
       },
       origin: {
         type: String,
-        enum: ["urban", "rural"],
       },
       familyhistory: [
         {
@@ -164,9 +158,6 @@ const petSchema = mongoose.Schema(
               String,
             },
             temperature: {
-              Number,
-            },
-            weight: {
               Number,
             },
             consciousness: {

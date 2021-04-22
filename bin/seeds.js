@@ -36,6 +36,8 @@ mongoose.connection.once("open", () => {
     .then((users) => {
       console.log(`${users.length} users created`);
 
+      const date = faker.date.past()
+
       const pets = [];
 
       for (let index = 0; index < 20; index++) {
@@ -49,6 +51,14 @@ mongoose.connection.once("open", () => {
             hair: "short",
             color: "gris",
             sterilized: "intact",
+            washweek: 2,
+            wash: '18-04-2021',
+            weight: [{ date: '21-9-2011', kg: 2 },
+            { date: '18-3-2012', kg: 6 },
+            { date: '15-10-2012', kg: 14 },
+            { date: '2-2-2013', kg: 22 },
+            { date: '11-5-2013', kg: 25 },
+            { date: '16-8-2013', kg: 29 },]
           },
         });
       }
