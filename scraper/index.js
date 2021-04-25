@@ -6,21 +6,10 @@ const pdfAObjt = require('../pdfparse/index')
 
 let browserInstance = browserObject.startBrowser();
 
-const urlS = [["http://www.fci.be/Nomenclature/Standards/166g01-es.pdf", 'http://www.fci.be/Nomenclature/Standards/293g01-es.pdf', 'http://www.fci.be/Nomenclature/Standards/015g01-es.pdf']]
-
-
-
-// pagePdfScraper(browserInstance, urlS)
-//     .then((r) => {
-//         pdfAObjt(r)
-//             .then((data) => { console.log(data)})
-//     })
-//     .catch((e) => console.error(e))
-
 const scraperPdfs = () => new Promise(async (resolve, reject) => {
     scraperController(browserInstance)
         .then((d) => {
-            pagePdfScraper(browserInstance, [d.group[9]])
+            pagePdfScraper(browserInstance, d.group)
                 .then((r) => {
                     resolve(r)
                     // pdfAObjt(r)
