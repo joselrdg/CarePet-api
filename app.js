@@ -1,4 +1,15 @@
 require('dotenv').config();
+
+// const browserObject = require('./scraper/browser');
+// const scraperController = require('./scraper/pageController');
+
+// //Start the browser and create a browser instance
+// let browserInstance = browserObject.startBrowser();
+
+// // Pass the browser instance to the scraper controller
+// scraperController(browserInstance)
+
+
 const jwt = require("jsonwebtoken");
 const cors = require('cors')
 const mongoose = require('mongoose');
