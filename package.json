@@ -6,7 +6,8 @@
     "start": "node ./app.js",
     "dev": "DEBUG=petvet-api:* nodemon ./app.js",
     "seeds": "node ./bin/seeds.js",
-    "scraper": "node ./bin/scraper.js"
+    "scraper": "node ./bin/scraper.js",
+    "pdf": "node ./pdfparse/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,7 +25,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
+    "pdf-parse": "^1.1.1",
     "puppeteer": "^9.0.0",
-    "pdf-parse": "^1.1.1"
+    "puppeteer-extra": "^3.1.18",
+    "puppeteer-extra-plugin-stealth": "^2.7.7"
   }
 }

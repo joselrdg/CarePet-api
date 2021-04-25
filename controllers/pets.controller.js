@@ -43,7 +43,6 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
   if (req.body.user === req.currentUser)
-  console.log('entroooo')
   {Pet.create(req.body)
     .then((pet) => {console.log('Mascota creada'); res.status(201).json(pet)})
     .catch(next);}
