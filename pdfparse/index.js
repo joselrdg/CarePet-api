@@ -163,7 +163,7 @@ const pdfAObjt = (numeroE) => new Promise(async (resolve, reject) => {
                                     dataObj[nom[ind]] = nvArr
                                 }
                             } else {
-                                dataObj[nom[ind]] = element // optimizar
+                                dataObj[nom[ind]] = element 
                             }
                         }
                     }
@@ -179,13 +179,5 @@ const pdfAObjt = (numeroE) => new Promise(async (resolve, reject) => {
 }
 )
 
-// //Prueba
-// pdfAObjt(3)
-//     .then(d => {
-//         // d.forEach(element => {
-//         //     console.log(element.raza)
-//         // });
-//         console.log(d)
-//     })
 
 module.exports = (num) => pdfAObjt(num)

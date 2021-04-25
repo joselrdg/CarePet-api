@@ -8,7 +8,6 @@ const browserObject = require('../scraper/browser');
 const scraperPdfs = require('../scraper/index');
 const pdfAObjt = require('../pdfparse/index')
 
-let browserInstance = browserObject.startBrowser();
 
 // Urls de prueba
 // const urlS = [["http://www.fci.be/Nomenclature/Standards/166g01-es.pdf", 'http://www.fci.be/Nomenclature/Standards/293g01-es.pdf', 'http://www.fci.be/Nomenclature/Standards/015g01-es.pdf']]
