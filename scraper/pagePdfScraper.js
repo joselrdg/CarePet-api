@@ -10,7 +10,7 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
 
-let scrapePdf = (browserInstance, arrayUrlS) => new Promise(async (resolve, reject) => {
+const scrapePdf = (browserInstance, arrayUrlS) => new Promise(async (resolve, reject) => {
     // async function scrapeAll(browserInstance) {
     let browser;
     try {
