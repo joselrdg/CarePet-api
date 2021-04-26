@@ -8,21 +8,37 @@ const browserObject = require('../scraper/browser');
 const scraperPdfs = require('../scraper/index');
 const pdfAObjt = require('../pdfparse/index')
 
+const extractimg = require('../pdfparse/extractimg');
+
+
 mongoose.connection.once("open", () => {
   console.info(
     `*** Connected to the database ${mongoose.connection.db.databaseName} ***`
-  );
-scraperPdfs()
-.then((e)=>{
-  console.log(e + ' Pdfs descargados');
-  pdfAObjt(e)
-  .then((data) => {
-    console.log(data)
-    BreedsFci.create(data)
-    .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
-    .catch((e) => console.error(e))
-  })
+  );  
+    
+    pdfAObjt(332)
+    .then((data) => {
+      console.log(data)
+      BreedsFci.create(data)
+      .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
+      .catch((e) => console.error(e))
+    })
+    .catch((e) =>{ console.error(e); next(err)})
+    
+  
 
-})})
+// scraperPdfs()
+// .then((e)=>{
+//   console.log(e + ' Pdfs descargados');
+//   pdfAObjt(e)
+//   .then((data) => {
+//     console.log(data)
+//     BreedsFci.create(data)
+//     .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
+//     .catch((e) => console.error(e))
+//   })
+// })
+
+})
 .catch((error) => console.error(error))
 

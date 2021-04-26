@@ -5,6 +5,7 @@ const breedsSchema = mongoose.Schema(
     raza: [{type: String,
       required: "Breed is required",}],
     tamano: [String],
+    img:[Object],
     origen: [String],
     fecha: [String],
     utilizado: [String],
