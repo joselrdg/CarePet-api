@@ -11,6 +11,7 @@ const scraperPdfs = () => new Promise(async (resolve, reject) => {
         .then((d) => {
             pagePdfScraper(browserInstance, d.group)
                 .then((r) => {
+                    console.log(r)
                     resolve(r)
                     // pdfAObjt(r)
                     //     .then((data) => { console.log(data); console.log('yeaaaaaaaaasiiiiiiiiiiiiiiiiii') })
