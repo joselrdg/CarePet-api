@@ -14,13 +14,13 @@ const Breeds = require("../models/BreedsFci.model");
 //     .catch(next);
 // };
 
-const options = {
-  page: 1,
-  limit: 10,
-  collation: {
-    locale: 'en',
-  },
-};
+// const options = {
+//   page: 1,
+//   limit: 10,
+//   collation: {
+//     locale: 'en',
+//   },
+// };
 
 module.exports.list = (req, res, next) => {
   Breeds.paginate({}, { offset: 30, limit: 10 }).then(function (result) {
