@@ -1,31 +1,34 @@
 const createError = require("http-errors");
 const Breeds = require("../models/BreedsFci.model");
 
-// module.exports.list = (req, res, next) => {
-//   console.log('get list fci')
-//     Breeds.find()
-//     .then((breeds) => {
-//       if (!breeds) {
-//         next(createError(404, "Brreds not found"));
-//       } else {
-//         res.json(breeds);
-//       }
-//     })
-//     .catch(next);
-// };
-
-const options = {
-  page: 1,
-  limit: 10,
-  collation: {
-    locale: 'en',
-  },
-};
-
-module.exports.list = (req, res, next) => {
-  Breeds.paginate({}, { offset: 30, limit: 10 }).then(function (result) {
+module.exports.group = (req, res, next) => {
+  console.log(req.params.group)
+  const options = {
+    page: req.params.page,
+    limit: req.params.limit
+  } 
+  Breeds.paginate({grupo: req.params.group}, options).then(function (result) {
+    console.log('Resultados razas')
     res.json(result);
   })
     .catch(next);
 };
 
+// const options = {
+//   page: 1,
+//   limit: 10,
+//   collation: {
+//     locale: 'en',
+//   },
+// };
+
+module.exports.list = (req, res, next) => {
+  const options = {
+    pagination: false
+  } 
+  Breeds.paginate({}, options).then(function (result) {
+    console.log('Resultados razas')
+    res.json(result);
+  })
+    .catch(next);
+};

@@ -16,12 +16,12 @@ mongoose.connection.once("open", () => {
     `*** Connected to the database ${mongoose.connection.db.databaseName} ***`
   );  
     
-    // pdfAObjt(332)
+    // pdfAObjt({numName:7, grupo1:3})
     // .then((data) => {
     //   console.log(data)
-    //   BreedsFci.create(data)
-    //   .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
-    //   .catch((e) => console.error(e))
+    //   // BreedsFci.create(data)
+    //   // .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
+    //   // .catch((e) => console.error(e))
     // })
     // .catch((e) =>{ console.error(e); next(err)})
     
@@ -29,7 +29,8 @@ mongoose.connection.once("open", () => {
 
 scraperPdfs()
 .then((e)=>{
-  console.log(e + ' Pdfs descargados');
+  console.log(e)
+  console.log(e.numName + ' Pdfs descargados');
   pdfAObjt(e)
   .then((data) => {
     console.log(data)

@@ -18,6 +18,8 @@ router.post('/pets/create/:user', authMiddleware.isAuthenticated, petsController
 router.get('/pets/:id', authMiddleware.isAuthenticated, petsController.get)
 
 router.get('/breeds/list/', authMiddleware.isAuthenticated, breedsController.list)
+router.get('/breeds/group/:group/:page/:limit', authMiddleware.isAuthenticated, breedsController.group)
+
 
 
 module.exports = router;

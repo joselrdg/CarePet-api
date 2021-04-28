@@ -221,7 +221,7 @@ let extractimgScrip = (pdf) => new Promise(async (resolve, reject) => {
       }
       console.log(imagesInDoc[0].data);
       console.log('Images written to ./images');
-      resolve(img)
+      resolve(imgs)
     }
   })
 })
