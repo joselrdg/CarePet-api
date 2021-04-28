@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const breedsSchema = mongoose.Schema(
   {
@@ -35,11 +36,15 @@ const breedsSchema = mongoose.Schema(
     toJSON: {
       transform: (doc, ret) => {
         ret.id = doc._id;
+        delete ret._id;
+        delete ret.img;
         return ret;
       },
     },
   }
 );
+
+breedsSchema.plugin(mongoosePaginate);
 
 
 const BreedsFci = mongoose.model("BreedsFci", breedsSchema);
