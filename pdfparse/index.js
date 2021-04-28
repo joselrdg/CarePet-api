@@ -53,7 +53,25 @@ const pdfAObjt = (numeroE) => new Promise(async (resolve, reject) => {
             pushImg(d)
               .then((e) => {
                 console.log(dataObj.img)
-                console.log(e)
+                if(contador <= 41) {
+                  data.grupo = 1
+                } else if (contador <= 93){
+                  data.grupo = 2
+                } else if (contador <= 127){
+                  data.grupo = 3
+                } else if (contador <= 167){
+                  data.grupo = 5
+                } else if (contador <= 236){
+                  data.grupo = 6
+                } else if (contador <= 270){
+                  data.grupo = 7
+                } else if (contador <= 292) {
+                  data.grupo = 8
+                } else if (contador <= 318){
+                  data.grupo = 9
+                } else {
+                  data.grupo = 10
+                }
                 arrData.push(dataObj)
                 console.log('Objeto creado. Pdfs procesados: ' + (contador + 1))
                 contador++
