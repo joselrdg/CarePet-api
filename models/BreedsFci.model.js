@@ -37,7 +37,6 @@ const breedsSchema = mongoose.Schema(
       transform: (doc, ret) => {
         ret.id = doc._id;
         delete ret._id;
-        delete ret.img;
         return ret;
       },
     },
