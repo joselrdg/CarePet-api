@@ -11,6 +11,10 @@ const petSchema = mongoose.Schema(
       type: mongoose.SchemaTypes.ObjectId,
       ref: "User",
       required: true,
+    },    
+    wash: {
+      date: Date,
+      days: String
     },
     review: {
       species: {
@@ -45,10 +49,6 @@ const petSchema = mongoose.Schema(
         type: Date,
       },
       washweek: Number,
-      wash: {
-        date: Date,
-        days: String
-      },
       weight: {date: Date, kg:Number},
       habitat: {
         type: String,
