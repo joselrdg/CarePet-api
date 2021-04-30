@@ -47,3 +47,15 @@ module.exports.create = (req, res, next) => {
     .then((pet) => {console.log('Mascota creada'); res.status(201).json(pet)})
     .catch(next);}
 };
+
+
+module.exports.editPetUser = (req, res, next) => {
+  console.log(req.body)
+  const id = req.params.user
+  Pet.findByIdAndUpdate(id, req.body,{new:true})
+      .then((p) => {
+        console.log(p)
+          console.log('Existe----------------------')
+      })
+      .catch((e) => next(e));
+}

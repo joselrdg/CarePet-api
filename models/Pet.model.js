@@ -45,7 +45,10 @@ const petSchema = mongoose.Schema(
         type: Date,
       },
       washweek: Number,
-      wash: String,
+      wash: {
+        date: Date,
+        days: String
+      },
       weight: {date: Date, kg:Number},
       habitat: {
         type: String,

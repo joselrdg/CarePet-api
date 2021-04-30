@@ -15,6 +15,8 @@ router.get('/users/me', authMiddleware.isAuthenticated, usersController.get)
 router.get('/pets/list', authMiddleware.isAuthenticated, petsController.getAll)
 router.get('/pets/user/:id', authMiddleware.isAuthenticated, petsController.list)
 router.post('/pets/create/:user', authMiddleware.isAuthenticated, petsController.create)
+router.put('/pets/edit/:id', authMiddleware.isAuthenticated, petsController.editPetUser)
+
 router.get('/pets/:id', authMiddleware.isAuthenticated, petsController.get)
 
 router.get('/breeds/list/', authMiddleware.isAuthenticated, breedsController.list)
