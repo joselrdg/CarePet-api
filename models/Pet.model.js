@@ -15,6 +15,26 @@ const petSchema = mongoose.Schema(
     wash: {
       date: Date,
       days: String
+    },        
+    haircut: {
+      date: Date,
+      days: String
+    },            
+    earcleaning: {
+      date: Date,
+      days: String
+    },            
+    teethcleaning: {
+      date: Date,
+      days: String
+    },
+    vaccination: {
+      date: Date,
+      days: String
+    },
+    deworming: {
+      date: Date,
+      days: String
     },
     review: {
       species: {
