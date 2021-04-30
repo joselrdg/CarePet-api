@@ -12,9 +12,9 @@ mongoose.connection.once("open", () => {
   );
 
   mongoose.connection.db
-    .dropDatabase()
-    .then(() => console.log("Database clear"))
-    .then(() => {
+    // .dropDatabase()
+    // .then(() => console.log("Database clear"))
+    // .then(() => {
       const users = [];
 
       users.push({
@@ -31,9 +31,9 @@ mongoose.connection.once("open", () => {
         });
       }
 
-      return User.create(users);
-    })
-    .then((users) => {
+      // return 
+      // })
+      User.create(users).then((users) => {
       console.log(`${users.length} users created`);
 
       const date = faker.date.past()
@@ -51,8 +51,6 @@ mongoose.connection.once("open", () => {
             hair: "short",
             color: "gris",
             sterilized: "intact",
-            washweek: 2,
-            wash: '18-04-2021',
             weight: [{ date: '21-9-2011', kg: 2 },
             { date: '18-3-2012', kg: 6 },
             { date: '15-10-2012', kg: 14 },
