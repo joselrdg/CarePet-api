@@ -32,3 +32,18 @@ module.exports.list = (req, res, next) => {
   })
     .catch(next);
 };
+
+module.exports.breed = (req, res, next) => {
+
+
+  console.log(req.params)
+  Breeds.findOne({
+    raza: {
+      $all: ["Podenco portugués "]
+    }
+  })
+  .then((breed)=>{ 
+    console.log(breed)
+  })
+  .catch(next);
+};

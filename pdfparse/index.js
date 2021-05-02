@@ -72,10 +72,16 @@ const pdfAObjt = (numeroE) => new Promise(async (resolve, reject) => {
                 } else {
                   dataObj.grupo = 10
                 }
-                arrData.push(dataObj)
-                console.log('Objeto creado. Pdfs procesados: ' + (contador + 1))
-                contador++
-                contadorFun()
+
+                for (const property in dataObj) {
+                  console.log(`${property}: ${dataObj[property]}`);
+                }
+
+
+                // arrData.push(dataObj)
+                // console.log('Objeto creado. Pdfs procesados: ' + (contador + 1))
+                // contador++
+                // contadorFun()
               })
           })
           .catch(e => console.error(e))
