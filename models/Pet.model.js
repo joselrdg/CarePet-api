@@ -73,7 +73,8 @@ const petSchema = mongoose.Schema(
       },
       sex: String,
       breed: {
-        type: String,
+        name : String,
+        id: String
       },
       hair: {
         type: String,

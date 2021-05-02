@@ -36,15 +36,11 @@ module.exports.list = (req, res, next) => {
 module.exports.breed = (req, res, next) => {
   const query = req.params.breed
   console.log(query)
-  Breeds.findOne({
-    raza: {
-      $all: [query]
-    }
-  })
+  Breeds.findById(query)
   .then((breed)=>{
     if(breed){ 
       console.log('breed find')
-      // res.json(breed);
+      res.json(breed);
   } else {
     console.log('no breed')
   }
