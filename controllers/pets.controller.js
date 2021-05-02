@@ -53,9 +53,9 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.editPetUser = (req, res, next) => {
-  console.log(req.params);
+  console.log(req.body);
   const id = req.params.id;
-  Pet.findByIdAndUpdate(id, { $set: req.body }, { new: true })
+  Pet.findByIdAndUpdate(id, { $push: req.body }, { new: true })
     .then((p) => {
       console.log("Existe----------------------");
       if (p === null) {

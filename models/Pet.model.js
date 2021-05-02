@@ -11,36 +11,58 @@ const petSchema = mongoose.Schema(
       type: mongoose.SchemaTypes.ObjectId,
       ref: "User",
       required: true,
-    },    
-    wash: {
-      date: Date,
-      days: String
-    },        
-    haircut: {
-      date: Date,
-      days: String
-    },            
-    earcleaning: {
-      date: Date,
-      days: String
-    },            
-    teethcleaning: {
-      date: Date,
-      days: String
     },
-    vaccination: {
-      date: Date,
-      days: String
-    },
-    deworming: {
-      date: Date,
-      days: String
-    },
+    wash: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    haircut: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    earcleaning: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    teethcleaning: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    vaccination: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    deworming: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    medication: [
+      {
+        name: String,
+        dosage: String,
+        startdate: Date,
+        lastday: Date,
+        hours: Number,
+        notes: String
+      }
+    ],
     review: {
       species: {
         type: String,
       },
-      picture:{
+      picture: {
         type: String,
       },
       name: {
@@ -69,7 +91,7 @@ const petSchema = mongoose.Schema(
         type: Date,
       },
       washweek: Number,
-      weight: {date: Date, kg:Number},
+      weight: { date: Date, kg: Number },
       habitat: {
         type: String,
       },
