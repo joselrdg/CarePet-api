@@ -21,7 +21,7 @@ router.get('/pets/:id', authMiddleware.isAuthenticated, petsController.get)
 
 router.get('/breeds/list/', authMiddleware.isAuthenticated, breedsController.list)
 router.get('/breeds/group/:group/:page/:limit', authMiddleware.isAuthenticated, breedsController.group)
-router.get('/breeds/breed/:raza', authMiddleware.isAuthenticated, breedsController.breed)
+router.get('/breeds/breed/:breed', authMiddleware.isAuthenticated, breedsController.breed)
 
 
 

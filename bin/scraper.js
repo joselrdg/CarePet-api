@@ -16,12 +16,12 @@ mongoose.connection.once("open", () => {
     `*** Connected to the database ${mongoose.connection.db.databaseName} ***`
   );  
     
-    pdfAObjt({numName:7, grupo1:3})
+    pdfAObjt(332)
     .then((data) => {
       console.log(data)
-      // BreedsFci.create(data)
-      // .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
-      // .catch((e) => console.error(e))
+      BreedsFci.create(data)
+      .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
+      .catch((e) => console.error(e))
     })
     .catch((e) =>{ console.error(e); next(err)})
     

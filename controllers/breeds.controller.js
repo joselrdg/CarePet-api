@@ -36,10 +36,10 @@ module.exports.list = (req, res, next) => {
 module.exports.breed = (req, res, next) => {
 
 
-  console.log(req.params)
+  console.log(req.params.breed)
   Breeds.findOne({
     raza: {
-      $all: ["Podenco portugués "]
+      $all: ["Podenco portugués"]
     }
   })
   .then((breed)=>{ 
