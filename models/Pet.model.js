@@ -68,9 +68,7 @@ const petSchema = mongoose.Schema(
     name: {
       type: String,
     },
-    chip: {
-      type: String,
-    },
+    chip: String,
     sex: String,
     breed: String,
     breedid: String,

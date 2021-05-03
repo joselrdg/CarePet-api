@@ -15,7 +15,9 @@ router.get('/users/me', authMiddleware.isAuthenticated, usersController.get)
 router.get('/pets/list', authMiddleware.isAuthenticated, petsController.getAll)
 router.get('/pets/user/:id', authMiddleware.isAuthenticated, petsController.list)
 router.post('/pets/create/:user', authMiddleware.isAuthenticated, upload.single('file'), petsController.create)
-router.put('/pets/edit/:id', authMiddleware.isAuthenticated, petsController.editPetUser)
+router.put('/pets/editfield/:id', authMiddleware.isAuthenticated, petsController.editPetUser)
+router.put('/pets/edit/:id', authMiddleware.isAuthenticated,upload.single('file'), petsController.editOnePetUser)
+router.put('/pets/delete/:id', authMiddleware.isAuthenticated, petsController.deletePetUser)
 
 router.get('/pets/:id', authMiddleware.isAuthenticated, petsController.get)
 

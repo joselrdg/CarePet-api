@@ -56,30 +56,70 @@ module.exports.create = (req, res, next) => {
       .catch(next);
 };
 
+module.exports.deletePetUser = (req, res, next) => {
+  const id = req.params.id
+  console.log(id)
+    Pet.findByIdAndRemove(id)
+      .then((pet) => {
+        console.log(pet)
+        console.log("Deleted pet");
+        res.status(201).json(pet);
+      })
+      .catch(next);
+};
+
 module.exports.editPetUser = (req, res, next) => {
   console.log(req.body);
-  // const id = req.params.id;
-  // Pet.findByIdAndUpdate(id, { $push: req.body }, { new: true })
-  //   .then((p) => {
-  //     console.log("Existe----------------------");
-  //     if (p === null) {
-  //       console.log('null');
-  //       next(createError(404, "the pet could not be updated"));
-  //     } else {
-  //       console.log(id);
-  //       Pet.findById(id).then((pet) => {
-  //         console.log(pet);
-  //         if (!pet) {
-  //           console.log('No encontrado')
-  //           next(createError(404, "Pet not found"));
-  //         } else {
-  //           res.json(pet);
-  //         }
-  //       });
-  //     }
-  //   })
-  //   .catch((e) => {
-  //     console.log("error actualizar");
-  //     next(e);
-  //   });
+  const id = req.params.id;
+  Pet.findByIdAndUpdate(id, { $push: req.body }, { new: true })
+    .then((p) => {
+      console.log("Existe----------------------");
+      if (p === null) {
+        console.log('null');
+        next(createError(404, "the pet could not be updated"));
+      } else {
+        console.log(id);
+        Pet.findById(id).then((pet) => {
+          console.log(pet);
+          if (!pet) {
+            console.log('No encontrado')
+            next(createError(404, "Pet not found"));
+          } else {
+            res.json(pet);
+          }
+        });
+      }
+    })
+    .catch((e) => {
+      console.log("error actualizar");
+      next(e);
+    });
+};
+
+module.exports.editOnePetUser = (req, res, next) => {
+  console.log(req.body);
+  const id = req.params.id;
+  Pet.findByIdAndUpdate(id, { ...req.body }, { new: true })
+    .then((p) => {
+      console.log("Existe----------------------");
+      if (p === null) {
+        console.log('null');
+        next(createError(404, "the pet could not be updated"));
+      } else {
+        console.log(id);
+        Pet.findById(id).then((pet) => {
+          console.log(pet);
+          if (!pet) {
+            console.log('No encontrado')
+            next(createError(404, "Pet not found"));
+          } else {
+            res.json(pet);
+          }
+        });
+      }
+    })
+    .catch((e) => {
+      console.log("error actualizar");
+      next(e);
+    });
 };
