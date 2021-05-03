@@ -42,14 +42,18 @@ module.exports.list = (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-  if (req.body.user === req.currentUser) {
+  console.log(req.file)
+  console.log(req.body)
+    if (req.file) {
+      req.body.file = req.file.path;
+    }
     Pet.create(req.body)
       .then((pet) => {
+        console.log(pet)
         console.log("Created pet");
         res.status(201).json(pet);
       })
       .catch(next);
-  }
 };
 
 module.exports.editPetUser = (req, res, next) => {
@@ -68,7 +72,7 @@ module.exports.editPetUser = (req, res, next) => {
           if (!pet) {
             console.log('No encontrado')
             next(createError(404, "Pet not found"));
-          } else {            
+          } else {
             res.json(pet);
           }
         });

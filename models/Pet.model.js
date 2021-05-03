@@ -58,71 +58,68 @@ const petSchema = mongoose.Schema(
         notes: String
       }
     ],
-    review: {
-      species: {
-        type: String,
-      },
-      picture: {
-        type: String,
-      },
-      name: {
-        type: String,
-      },
-      chip: {
-        type: String,
-      },
-      sex: String,
-      breed: {
-        name : String,
-        id: String
-      },
-      hair: {
-        type: String,
-      },
-      color: {
-        type: String,
-      },
-      specialpeculiarities: {
-        type: String,
-      },
-      sterilized: {
-        type: String,
-      },
-      datebirth: {
-        type: Date,
-      },
-      washweek: Number,
-      weight: { date: Date, kg: Number },
-      habitat: {
-        type: String,
-      },
-      family: {
-        type: String,
-      },
-      origin: {
-        type: String,
-      },
-      familyhistory: [
-        {
-          type: String,
-        },
-      ],
-      allergies: [
-        {
-          type: String,
-        },
-      ],
-      previousdiseases: [
-        {
-          type: String,
-        },
-      ],
-      surgeries: [
-        {
-          type: String,
-        },
-      ],
+    file: String,
+    species: {
+      type: String,
     },
+    picture: {
+      type: String,
+    },
+    name: {
+      type: String,
+    },
+    chip: {
+      type: String,
+    },
+    sex: String,
+    breed: String,
+    breedid: String,
+    hair: {
+      type: String,
+    },
+    color: {
+      type: String,
+    },
+    specialpeculiarities: {
+      type: String,
+    },
+    sterilized: {
+      type: String,
+    },
+    datebirth: {
+      type: Date,
+    },
+    washweek: Number,
+    weigh: { date: Date, kg: Number },
+    habitat: {
+      type: String,
+    },
+    family: {
+      type: String,
+    },
+    origin: {
+      type: String,
+    },
+    familyhistory: [
+      {
+        type: String,
+      },
+    ],
+    allergies: [
+      {
+        type: String,
+      },
+    ],
+    previousdiseases: [
+      {
+        type: String,
+      },
+    ],
+    surgeries: [
+      {
+        type: String,
+      },
+    ],
     carepet: {
       history: [
         {

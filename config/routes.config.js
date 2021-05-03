@@ -3,7 +3,7 @@ const router = express.Router();
 const usersController = require('../controllers/users.controller')
 const petsController = require('../controllers/pets.controller')
 const breedsController = require('../controllers/breeds.controller')
-
+const upload = require ('./storage.config')
 const authMiddleware = require('../middlewares/auth.middleware')
 
 // Users routes
@@ -14,7 +14,7 @@ router.get('/users/me', authMiddleware.isAuthenticated, usersController.get)
 
 router.get('/pets/list', authMiddleware.isAuthenticated, petsController.getAll)
 router.get('/pets/user/:id', authMiddleware.isAuthenticated, petsController.list)
-router.post('/pets/create/:user', authMiddleware.isAuthenticated, petsController.create)
+router.post('/pets/create/:user', authMiddleware.isAuthenticated, upload.single('file'), petsController.create)
 router.put('/pets/edit/:id', authMiddleware.isAuthenticated, petsController.editPetUser)
 
 router.get('/pets/:id', authMiddleware.isAuthenticated, petsController.get)
