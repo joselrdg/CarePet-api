@@ -72,6 +72,9 @@ const pdfAObjt = (numeroE) => new Promise(async (resolve, reject) => {
                 } else {
                   dataObj.grupo = 10
                 }
+
+
+
                 arrData.push(dataObj)
                 console.log('Objeto creado. Pdfs procesados: ' + (contador + 1))
                 contador++
@@ -137,9 +140,15 @@ const pdfAObjt = (numeroE) => new Promise(async (resolve, reject) => {
         if ((/[()]/).test(arrText4[0])) {
           let arr1 = arrText4[0].replace(')', '')
           let arr = arr1.split('(')
+          let arrOk = []
+          arr.forEach(element => {
+            let e = element.replace(/( )$/, '').replace(/^( )/, '')
+            arrOk.push(e)
+          });
+          dataObj.raza = arrOk
+        } else { 
+          let arr = arrText4[0].replace(/( )$/, '').replace(/^( )/, '')
           dataObj.raza = arr
-        } else {
-          dataObj.raza = [arrText4[0]]
         }
         const regxTamano = (/^TAMA|^Tama/)
         const regx = [

@@ -11,95 +11,113 @@ const petSchema = mongoose.Schema(
       type: mongoose.SchemaTypes.ObjectId,
       ref: "User",
       required: true,
-    },    
-    wash: {
-      date: Date,
-      days: String
-    },        
-    haircut: {
-      date: Date,
-      days: String
-    },            
-    earcleaning: {
-      date: Date,
-      days: String
-    },            
-    teethcleaning: {
-      date: Date,
-      days: String
     },
-    vaccination: {
-      date: Date,
-      days: String
+    wash: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    haircut: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    earcleaning: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    teethcleaning: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    vaccination: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    deworming: [
+      {
+        date: Date,
+        days: String
+      }
+    ],
+    medication: [
+      {
+        name: String,
+        dosage: String,
+        startdate: Date,
+        lastday: Date,
+        hours: Number,
+        notes: String
+      }
+    ],
+    file: String,
+    species: {
+      type: String,
     },
-    deworming: {
-      date: Date,
-      days: String
+    picture: {
+      type: String,
     },
-    review: {
-      species: {
-        type: String,
-      },
-      picture:{
-        type: String,
-      },
-      name: {
-        type: String,
-      },
-      chip: {
-        type: String,
-      },
-      sex: String,
-      breed: {
-        type: String,
-      },
-      hair: {
-        type: String,
-      },
-      color: {
-        type: String,
-      },
-      specialpeculiarities: {
-        type: String,
-      },
-      sterilized: {
-        type: String,
-      },
-      datebirth: {
-        type: Date,
-      },
-      washweek: Number,
-      weight: {date: Date, kg:Number},
-      habitat: {
-        type: String,
-      },
-      family: {
-        type: String,
-      },
-      origin: {
-        type: String,
-      },
-      familyhistory: [
-        {
-          type: String,
-        },
-      ],
-      allergies: [
-        {
-          type: String,
-        },
-      ],
-      previousdiseases: [
-        {
-          type: String,
-        },
-      ],
-      surgeries: [
-        {
-          type: String,
-        },
-      ],
+    name: {
+      type: String,
     },
+    chip: String,
+    sex: String,
+    breed: String,
+    breedid: String,
+    hair: {
+      type: String,
+    },
+    color: {
+      type: String,
+    },
+    specialpeculiarities: {
+      type: String,
+    },
+    sterilized: {
+      type: String,
+    },
+    datebirth: {
+      type: Date,
+    },
+    washweek: Number,
+    weigh: { date: Date, kg: Number },
+    habitat: {
+      type: String,
+    },
+    family: {
+      type: String,
+    },
+    origin: {
+      type: String,
+    },
+    familyhistory: [
+      {
+        type: String,
+      },
+    ],
+    allergies: [
+      {
+        type: String,
+      },
+    ],
+    previousdiseases: [
+      {
+        type: String,
+      },
+    ],
+    surgeries: [
+      {
+        type: String,
+      },
+    ],
     carepet: {
       history: [
         {

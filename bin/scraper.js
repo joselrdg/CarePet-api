@@ -16,29 +16,29 @@ mongoose.connection.once("open", () => {
     `*** Connected to the database ${mongoose.connection.db.databaseName} ***`
   );  
     
-    // pdfAObjt({numName:7, grupo1:3})
-    // .then((data) => {
-    //   console.log(data)
-    //   // BreedsFci.create(data)
-    //   // .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
-    //   // .catch((e) => console.error(e))
-    // })
-    // .catch((e) =>{ console.error(e); next(err)})
+    pdfAObjt(332)
+    .then((data) => {
+      console.log(data)
+      BreedsFci.create(data)
+      .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
+      .catch((e) => console.error(e))
+    })
+    .catch((e) =>{ console.error(e); next(err)})
     
   
 
-scraperPdfs()
-.then((e)=>{
-  console.log(e)
-  console.log(e.numName + ' Pdfs descargados');
-  pdfAObjt(e)
-  .then((data) => {
-    console.log(data)
-    BreedsFci.create(data)
-    .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
-    .catch((e) => console.error(e))
-  })
-})
+// scraperPdfs()
+// .then((e)=>{
+//   console.log(e)
+//   console.log(e.numName + ' Pdfs descargados');
+//   pdfAObjt(e)
+//   .then((data) => {
+//     console.log(data)
+//     BreedsFci.create(data)
+//     .then((e)=>{console.log(e);console.log('Razas guardadas en bd')})
+//     .catch((e) => console.error(e))
+//   })
+// })
 
 })
 .catch((error) => console.error(error))
