@@ -32,37 +32,92 @@ const petSchema = mongoose.Schema(
     ],
     haircut: [
       {
-        startDate: Date,
-        endDate: String,
-        title: String
+        startDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String,
+          color: {
+            type: String,
+            default: 'indigo'
+          }
+        },
+        endDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String
+        }
       }
     ],
     earcleaning: [
       {
-        startDate: Date,
-        endDate: String,
-        title: String
+        startDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String,
+          color: {
+            type: String,
+            default: 'indigo'
+          }
+        },
+        endDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String
+        }
       }
     ],
     teethcleaning: [
       {
-        startDate: Date,
-        endDate: String,
-        title: String
+        startDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String,
+          color: {
+            type: String,
+            default: 'indigo'
+          }
+        },
+        endDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String
+        }
       }
     ],
     vaccination: [
       {
-        startDate: Date,
-        endDate: String,
-        title: String
+        startDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String,
+          color: {
+            type: String,
+            default: 'indigo'
+          }
+        },
+        endDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String
+        }
       }
     ],
     deworming: [
       {
-        startDate: Date,
-        endDate: String,
-        title: String
+        startDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String,
+          color: {
+            type: String,
+            default: 'indigo'
+          }
+        },
+        endDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String
+        }
       }
     ],
     medication: [
