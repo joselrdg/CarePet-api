@@ -69,6 +69,10 @@ module.exports.deletePetUser = (req, res, next) => {
 };
 
 module.exports.editPetUser = (req, res, next) => {
+  // if (req.file) {
+  //   console.log('req media')
+  //   req.body.media = req.media.path;
+  // }
   console.log(req.body);
   const id = req.params.id;
   Pet.findByIdAndUpdate(id, { $push: req.body }, { new: true })
@@ -96,8 +100,13 @@ module.exports.editPetUser = (req, res, next) => {
     });
 };
 
+
 module.exports.editOnePetUser = (req, res, next) => {
   console.log(req.body);
+  if (req.file) {
+    console.log('req media')
+    req.body.file = req.file.path;
+  }
   const id = req.params.id;
   Pet.findByIdAndUpdate(id, { ...req.body }, { new: true })
     .then((p) => {

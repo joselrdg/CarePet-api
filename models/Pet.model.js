@@ -118,6 +118,20 @@ const petSchema = mongoose.Schema(
         type: String,
       },
     ],
+    media: [{
+      type: String,
+      validate: {
+        validator: (value) => {
+          try {
+            const url = new URL(value);
+            return url.protocol === "http:" || url.protocol === "https:";
+          } catch (err) {
+            return false;
+          }
+        },
+        message: () => "Invalid image URL",
+      },
+    }],
     carepet: {
       history: [
         {
