@@ -14,38 +14,55 @@ const petSchema = mongoose.Schema(
     },
     wash: [
       {
-        date: Date,
-        days: String
+        startDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String,
+          color: {
+            type: String,
+            default: 'indigo'
+          }
+        },
+        endDate: {
+          startDate: Date,
+          allDay: Boolean,
+          title: String
+        }
       }
     ],
     haircut: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        endDate: String,
+        title: String
       }
     ],
     earcleaning: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        endDate: String,
+        title: String
       }
     ],
     teethcleaning: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        endDate: String,
+        title: String
       }
     ],
     vaccination: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        endDate: String,
+        title: String
       }
     ],
     deworming: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        endDate: String,
+        title: String
       }
     ],
     medication: [
