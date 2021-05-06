@@ -14,110 +14,137 @@ const petSchema = mongoose.Schema(
     },
     wash: [
       {
-        startDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String,
-          color: {
-            type: String,
-            default: 'indigo'
-          }
-        },
-        endDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String
-        }
+        // id: String,
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: String,
+        notes: String
+      }
+    ],
+    willwash: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: String,
+        notes: String
       }
     ],
     haircut: [
       {
-        startDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String,
-          color: {
-            type: String,
-            default: 'indigo'
-          }
-        },
-        endDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String
-        }
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
+      }
+    ],
+    willhaircut: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
       }
     ],
     earcleaning: [
       {
-        startDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String,
-          color: {
-            type: String,
-            default: 'indigo'
-          }
-        },
-        endDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String
-        }
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
+      }
+    ],
+    willearcleaning: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,        
+        notes: String
       }
     ],
     teethcleaning: [
       {
-        startDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String,
-          color: {
-            type: String,
-            default: 'indigo'
-          }
-        },
-        endDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String
-        }
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
+      }
+    ],
+    willteethcleaning: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
       }
     ],
     vaccination: [
       {
-        startDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String,
-          color: {
-            type: String,
-            default: 'indigo'
-          }
-        },
-        endDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String
-        }
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
+      }
+    ],
+    willvaccination: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
       }
     ],
     deworming: [
       {
-        startDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String,
-          color: {
-            type: String,
-            default: 'indigo'
-          }
-        },
-        endDate: {
-          startDate: Date,
-          allDay: Boolean,
-          title: String
-        }
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
+      }
+    ],
+    willdeworming: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        action: String,
+        notes: String
       }
     ],
     medication: [
