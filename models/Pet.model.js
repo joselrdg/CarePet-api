@@ -14,14 +14,16 @@ const petSchema = mongoose.Schema(
     },
     wash: [
       {
-        // id: String,
         startDate: Date,
         allDay: Boolean,
         endDate: Date,
         title: String,
         rRule: String,
         exDate: String,
-        action: String,
+        action: {
+          type: String,
+          default: 'wash'
+        },
         notes: String
       }
     ],
@@ -33,7 +35,25 @@ const petSchema = mongoose.Schema(
         title: String,
         rRule: String,
         exDate: String,
-        action: String,
+        action: {
+          type: String,
+          default: 'willwash'
+        },
+        notes: String
+      }
+    ],
+    others: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'others'
+        },
         notes: String
       }
     ],
@@ -44,7 +64,11 @@ const petSchema = mongoose.Schema(
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'haircut'
+        },
         notes: String
       }
     ],
@@ -55,7 +79,11 @@ const petSchema = mongoose.Schema(
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willhaircut'
+        },
         notes: String
       }
     ],
@@ -66,7 +94,11 @@ const petSchema = mongoose.Schema(
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'earcleaning'
+        },
         notes: String
       }
     ],
@@ -77,7 +109,11 @@ const petSchema = mongoose.Schema(
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,        
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willearcleaning'
+        },
         notes: String
       }
     ],
@@ -88,7 +124,11 @@ const petSchema = mongoose.Schema(
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'teethcleaning'
+        },
         notes: String
       }
     ],
@@ -99,7 +139,11 @@ const petSchema = mongoose.Schema(
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willteethcleaning'
+        },
         notes: String
       }
     ],
@@ -110,50 +154,75 @@ const petSchema = mongoose.Schema(
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'vaccination'
+        },
         notes: String
       }
     ],
     willvaccination: [
       {
+        // id: String,
         startDate: Date,
         allDay: Boolean,
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willvaccination'
+        },
         notes: String
       }
     ],
     deworming: [
       {
+        // id: String,
         startDate: Date,
         allDay: Boolean,
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'deworming'
+        },
         notes: String
       }
     ],
     willdeworming: [
       {
+        // id: String,
         startDate: Date,
         allDay: Boolean,
         endDate: Date,
         title: String,
         rRule: String,
-        action: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willdeworming'
+        },
         notes: String
       }
     ],
     medication: [
       {
-        name: String,
+        title: String,
         dosage: String,
-        startdate: Date,
-        lastday: Date,
+        startDate: Date,
+        endDate: Date,
         hours: Number,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'medication'
+        },
         notes: String
       }
     ],
