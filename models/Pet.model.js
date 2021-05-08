@@ -214,6 +214,7 @@ const petSchema = mongoose.Schema(
       {
         title: String,
         dosage: String,
+        allDay: Boolean,
         startDate: Date,
         endDate: Date,
         hours: Number,
