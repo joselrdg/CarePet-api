@@ -14,47 +14,216 @@ const petSchema = mongoose.Schema(
     },
     wash: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'wash'
+        },
+        notes: String
+      }
+    ],
+    willwash: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willwash'
+        },
+        notes: String
+      }
+    ],
+    others: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'others'
+        },
+        notes: String
       }
     ],
     haircut: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'haircut'
+        },
+        notes: String
+      }
+    ],
+    willhaircut: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willhaircut'
+        },
+        notes: String
       }
     ],
     earcleaning: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'earcleaning'
+        },
+        notes: String
+      }
+    ],
+    willearcleaning: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willearcleaning'
+        },
+        notes: String
       }
     ],
     teethcleaning: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'teethcleaning'
+        },
+        notes: String
+      }
+    ],
+    willteethcleaning: [
+      {
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willteethcleaning'
+        },
+        notes: String
       }
     ],
     vaccination: [
       {
-        date: Date,
-        days: String
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'vaccination'
+        },
+        notes: String
+      }
+    ],
+    willvaccination: [
+      {
+        // id: String,
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willvaccination'
+        },
+        notes: String
       }
     ],
     deworming: [
       {
-        date: Date,
-        days: String
+        // id: String,
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'deworming'
+        },
+        notes: String
+      }
+    ],
+    willdeworming: [
+      {
+        // id: String,
+        startDate: Date,
+        allDay: Boolean,
+        endDate: Date,
+        title: String,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'willdeworming'
+        },
+        notes: String
       }
     ],
     medication: [
       {
-        name: String,
+        title: String,
         dosage: String,
-        startdate: Date,
-        lastday: Date,
+        allDay: Boolean,
+        startDate: Date,
+        endDate: Date,
         hours: Number,
+        rRule: String,
+        exDate: String,
+        action: {
+          type: String,
+          default: 'medication'
+        },
         notes: String
       }
     ],
@@ -118,6 +287,20 @@ const petSchema = mongoose.Schema(
         type: String,
       },
     ],
+    media: [{
+      type: String,
+      validate: {
+        validator: (value) => {
+          try {
+            const url = new URL(value);
+            return url.protocol === "http:" || url.protocol === "https:";
+          } catch (err) {
+            return false;
+          }
+        },
+        message: () => "Invalid image URL",
+      },
+    }],
     carepet: {
       history: [
         {
