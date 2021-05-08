@@ -11,7 +11,8 @@ require('dotenv').config();
 
 
 const jwt = require("jsonwebtoken");
-const cors = require('cors')
+const cors = require('./config/cors.config')
+
 const mongoose = require('mongoose');
 const createError = require('http-errors');
 const logger = require('morgan');
@@ -25,7 +26,7 @@ const app = express();
 
 app.use(express.json());
 app.use(logger('dev'));
-app.use(cors());
+app.use(cors);
 
 // Web Title
 app.locals.title = 'Pet&Vet';
