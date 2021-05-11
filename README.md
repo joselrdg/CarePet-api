@@ -58,6 +58,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+Rest Api in charge of managing and storing the information of the <a href="https://github.com/joselrdg/CarePet-web">CarePet website.</a>
+To fill in the database, I program a script to scrape the website of the federation cynologique internationale, download all the pdfs present (so far 332 dog breeds divided into 10 groups) to the tmp folder, then another script is activated that processes all the pdfs, places all the characteristics of each race and extracts the images present in the pdfs. Then it stores the 332 breeds of dogs with all their characteristics in its database.
+Then the api is in charge of managing the security of the requests, the information of the users, the care of their pets and of presenting the information of all the breeds of dogs accepted by the federation cynologique internationale.
 ### Dashboard:
 ![ScreenShot CarePet](./public/screenShot/profile.png)
 ### Simple graphics to see appointments quickly:
@@ -88,12 +91,26 @@ Its own api provides you with a wealth of information on the 332 dog breeds appr
 ### Built With 🛠️
 
 * [NPM](https://www.npmjs.com/)
+* [Express](http://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* [Connect mongo](https://github.com/jdesboeufs/connect-mongo#readme)
+* [Mongoose](https://mongoosejs.com/)
+* [mongoose-paginate-v2](https://github.com/aravindnc/mongoose-paginate-v2)
+* [Morgan](https://github.com/expressjs/morgan#readme)
+* [Cors](https://www.npmjs.com/package/cors)
 * [Axios](https://github.com/axios/axios)
-* [React](https://es.reactjs.org/)
-* [SASS](https://sass-lang.com/)
-* [Material UI](https://material-ui.com/)
-* [DevExpress](https://www.devexpress.com/)
-* [Recharts](https://recharts.org/)
+* [Bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme)
+* [Cloudinary](https://cloudinary.com/)
+* [Debug](https://github.com/visionmedia/debug#readme)
+* [Dotenv](https://github.com/motdotla/dotenv#readme)
+* [Faker](https://github.com/Marak/Faker.js)
+* [Http-errors](https://github.com/jshttp/http-errors)
+* [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+* [Multer](https://github.com/expressjs/multer)
+* [Pdf-parse](https://gitlab.com/autokent/pdf-parse)
+* [Png.js](https://github.com/foliojs/png.js)
+* [Puppeteer](https://pptr.dev/)
+<!-- * [Rimraf](https://github.com/isaacs/rimraf) -->
 
 
 
@@ -124,17 +141,35 @@ This is an example of how to list things you need to use the software and how to
 3. Create .ENV file with the following variables:
    ```sh
    REACT_APP_API_HOST=http://localhost:3001
+   PORT=
+   MONGODB_URI=
+   JWT_SECRET= 
+   CORS_ORIGIN=
    ```
-4. Create .ENV.PRODUCTION file with the following variables:
+4. Run the file to store some users and pets:
    ```sh
-   REACT_APP_API_HOST="Your api host"
+   npm run seeds
    ```
+5. Run the file to scrape the Fci website, process the pdfs with the dog breeds and save the information in your database:
+   ```sh
+   npm run scraper
+   ```
+5. Run the application in development mode:
+   ```sh
+   npm run dev
+   ```
+5. Run the application:
+   ```sh
+   npm start
+   ```
+
+
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/joselrdg/CarePet-web/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/joselrdg/CarePet-api/issues) for a list of proposed features (and known issues).
 
 
 
@@ -165,7 +200,7 @@ José Luis Rodríguez , [josesietepicos@gmail.com](mailto:josesietepicos@gmail.c
 
 LinkedIn , [https://www.linkedin.com/in/joseluis-rodriguez-gonzalez/](mailto:josesietepicos@gmail.com)
 
-Project Link: [https://github.com/joselrdg/CarePet-web](https://github.com/joselrdg/Infect-me)
+Project Link: [https://github.com/joselrdg/CarePet-api](https://github.com/joselrdg/CarePet-api)
 
 Demo Link: [https://petvet-web.herokuapp.com/](https://infectme.herokuapp.com/)
 
