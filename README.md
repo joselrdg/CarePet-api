@@ -202,6 +202,6 @@ LinkedIn , [https://www.linkedin.com/in/joseluis-rodriguez-gonzalez/](mailto:jos
 
 Project Link: [https://github.com/joselrdg/CarePet-api](https://github.com/joselrdg/CarePet-api)
 
-Demo Link: [https://petvet-web.herokuapp.com/](https://infectme.herokuapp.com/)
+Demo Link: [https://petvet-web.herokuapp.com/](https://petvet-web.herokuapp.com)
 
 <!-- ## Acknowledgements -->
