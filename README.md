@@ -47,7 +47,7 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <!-- <li><a href="#license">License</a></li> -->
     <li><a href="#contact">Contact</a></li>
     <!-- <li><a href="#acknowledgements">Acknowledgements</a></li> -->
   </ol>
@@ -140,7 +140,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 3. Create .ENV file with the following variables:
    ```sh
-   REACT_APP_API_HOST=http://localhost:3001
+   REACT_APP_API_HOST=
    PORT=
    MONGODB_URI=
    JWT_SECRET= 
